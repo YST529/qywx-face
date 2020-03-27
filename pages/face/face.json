@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "人脸识别",
+  "usingComponents": {
+    "mp-loading": "/weui/loading/loading"
+  }
+}

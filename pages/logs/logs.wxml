@@ -1,0 +1,9 @@
+<!--logs.wxml-->
+<view class="container log-list">
+  <block wx:for="{{logs}}" wx:for-item="log">
+    <text class="log-item">{{index + 1}}. {{log}}</text>
+  </block>
+  <block>
+    <button class='weui-btn mini-btn' type='default' size='mini' bindtap="bindViewTap" >人脸识别</button>
+  </block>
+</view>

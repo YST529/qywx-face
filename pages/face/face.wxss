@@ -1,0 +1,10 @@
+/* pages/face/face.wxss */
+.class {
+  position: absolute;
+  z-index: 2;
+}
+
+.camera {
+  position: absolute;
+  z-index: 1;
+}
