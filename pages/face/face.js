@@ -7,11 +7,12 @@ Page({
       disabled: true
     })
     setTimeout(() => {
+      let baseImg = ''
       ctx.takePhoto({
         quality: 'high',
         success: (res) => {
           let img = res.tempImagePath
-          let baseImg = wx.getFileSystemManager().readFileSync(img, "base64")
+          baseImg = wx.getFileSystemManager().readFileSync(img, "base64")
           console.log(baseImg)
           this.setData({
             src: img,
@@ -20,19 +21,19 @@ Page({
         }
       })
       wx.request({
-        url: 'localhost',
+        url: '127.0.0.1:8360/admin/test/face',
         data: {
           img: baseImg
         },
         header: {
           'content-type': 'application/json' // 默认值
         },
-        method: 'POST',
+        method: 'GET',
         success (res) {
           console.log(res.data)
         }
       })
-      that.takePhoto()
+      // that.takePhoto()
     }, 1100)
 
     // this.setData({
