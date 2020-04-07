@@ -64,7 +64,7 @@ Page({
       return false
     }
     util.login().then((res) => {
-      return util.request(api.AuthLoginByWeixin, {
+      return util.request(api.UserLoginByWechat, {
         code: res,
         userInfo: e.detail
       }, 'POST');
