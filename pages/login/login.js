@@ -1,13 +1,14 @@
 // pages/login/login.js
 const util = require('../../utils/util.js');
 const api = require('../../config/api.js');
-// const user = require('../../services/user.js');
+const user = require('../../service/user.js');
 const app = getApp();
 
 Page({
   data: {
     userInfo: {},
-    showLoginDialog: false
+    showLoginDialog: false,
+    showDelDialog: false,
   },
   onLoad: function(options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -30,7 +31,7 @@ Page({
 
   onUserInfoClick: function() {
     if (wx.getStorageSync('token')) {
-
+      this.exitLogin();
     } else {
       this.showLoginDialog();
     }
