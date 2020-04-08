@@ -73,7 +73,7 @@ Page({
       console.log(res)
       if (res.errno !== 0) {
         wx.showToast({
-          title: '微信登录失败',
+          title: res.errMsg,
         })
         return false;
       }
@@ -87,7 +87,7 @@ Page({
       wx.setStorageSync('userInfo', JSON.stringify(res.data.userInfo));
       wx.setStorageSync('token', res.data.token);
     }).catch((err) => {
-      console.log(err)
+      console.log(err, 'catch error')
     })
   },
 
@@ -103,6 +103,7 @@ Page({
 
   // TODO 移到个人信息页面
   exitLogin: function() {
+    let that = this
     wx.showModal({
       title: '',
       confirmColor: '#b4282d',
@@ -111,9 +112,12 @@ Page({
         if (res.confirm) {
           wx.removeStorageSync('token');
           wx.removeStorageSync('userInfo');
-          wx.switchTab({
-            url: '/pages/index/index'
-          });
+          that.setData({
+            userInfo: {
+              nickname: '点击登录',
+              avatar: 'http://yanxuan.nosdn.127.net/8945ae63d940cc42406c3f67019c5cb6.png'
+            },
+          })
         }
       }
     })

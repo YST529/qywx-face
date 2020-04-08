@@ -1,6 +1,5 @@
 <!--pages/face/face.wxml-->
 <view>
-	<!-- <text>pages/face/face.wxml</text> -->
 	<view class="camera">
 		<camera style="width: 100%; height: 300px;" device-position="front" flash="off" binderror="error"></camera>
 	</view>

@@ -11,27 +11,27 @@
 
   <view class="user-menu">
     <view class="item">
-      <navigator url="/pages/ucenter/order/order" class="a">
+      <navigator url="/pages/ucenter/register/register" class="a">
         <image class="icon" mode="aspectFit" src="/static/images/icon_face/zhuce.png"></image>
-        <text class="txt">人脸注册</text>
+        <text class="txt">用户注册</text>
       </navigator>
     </view>
     <view class="item">
-      <navigator url="/pages/ucenter/coupon/coupon" class="a">
+      <navigator url="/pages/ucenter/delete/delete" class="a">
         <image class="icon" mode="aspectFit" src="/static/images/icon_face/shanchu.png"></image>
-        <text class="txt">人脸删除</text>
+        <text class="txt">用户删除</text>
       </navigator>
     </view>
     <view class="item no-border">
-      <navigator url="url" class="a">
+      <navigator url="/pages/ucenter/updata/updata" class="a">
         <image class="icon" mode="aspectFit" src="/static/images/icon_face/gengxintouxiang.png"></image>
-        <text class="txt">人脸更新</text>
+        <text class="txt">用户更新</text>
       </navigator>
     </view>
     <view class="item item-bottom">
-      <navigator url="/pages/ucenter/collect/collect" class="a">
+      <navigator url="/pages/ucenter/lookup/lookup" class="a">
         <image class="icon" mode="aspectFit" src="/static/images/icon_face/chaxun.png"></image>
-        <text class="txt">人脸查找</text>
+        <text class="txt">用户查找</text>
       </navigator>
     </view>
     <view class="item item-bottom">

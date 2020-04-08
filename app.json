@@ -7,7 +7,8 @@
     "pages/ucenter/register/register",
     "pages/ucenter/delete/delete",
     "pages/ucenter/updata/updata",
-    "pages/ucenter/feedback/feedback"
+    "pages/ucenter/feedback/feedback",
+    "pages/ucenter/lookup/lookup"
   ],
   "window": {
     "backgroundTextStyle": "dark",
