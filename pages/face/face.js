@@ -1,4 +1,8 @@
 // pages/face/face.js
+const util = require('../../utils/util.js');
+const api = require('../../config/api.js');
+const user = require('../../service/user.js');
+const app = getApp();
 Page({
   takePhoto() {
     const ctx = wx.createCameraContext()

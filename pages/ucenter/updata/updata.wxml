@@ -1,2 +1,10 @@
 <!--pages/ucenter/updata/updata.wxml-->
-<text>pages/ucenter/updata/updata.wxml</text>
+<view>
+<!-- <text>pages/ucenter/updata/updata.wxml</text> -->
+<button class="weui-btn" type="default" bindtap="openConfirm">确认取消按钮</button>
+<mp-dialog show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+<view class="weui-loading" style="width:100rpx;height:100rpx"></view>
+
+</mp-dialog>
+
+</view>

@@ -1,2 +1,27 @@
 <!--pages/ucenter/del/delete.wxml-->
-<text>pages/ucenter/del/delete.wxml</text>
+<!--pages/ucenter/register/register.wxml-->
+<view>
+	<!-- <text>pages/ucenter/register/register.wxml</text> -->
+	<view class="header">
+		<mp-cells ext-class="my-cells" title="用户人脸注册信息">
+			<view wx:for="{{userData}}">
+				<mp-cell>
+					<view>{{index}}</view>
+					<view slot="footer">{{item}}</view>
+					</mp-cell>
+			</view>
+		</mp-cells>
+	</view>
+	<view class="camera">
+		<!-- <camera style="width: 100%; height: 300px;" device-position="front" flash="off" binderror="error"></camera> -->
+	</view>
+	<view class="text">
+		<text>{{baseImg}}</text>
+		<mp-loading type="circle" tips="验证中"></mp-loading>
+	</view>
+	<view>
+	<button type="primary" disabled="{{disabled}}" bindtap="takePhoto">删除用户</button>
+	<!-- <button type="primary" disabled="{{disabled}}" bindtap="takePhoto">验证</button> -->
+	</view>
+	<image mode="widthFix" src="{{src}}"></image>
+</view>

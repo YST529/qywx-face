@@ -1,11 +1,33 @@
 // pages/ucenter/updata/updata.js
+const util = require('../../../utils/util.js');
+const api = require('../../../config/api.js');
+const user = require('../../../service/user.js');
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    dialogShow: false,
+    buttons: [{
+      text: '取消'
+    }]
+  },
+  openConfirm: function () {
+    this.setData({
+      dialogShow: true
+    })
+    util.request(api.UserFaceSearch, {
+      data: '123'
+    }).then(res => {
+      console.log(res.data, 'eee')
+    })
+  },
+  tapDialogButton(e) {
+    this.setData({
+      dialogShow: false,
+    })
   },
 
   /**

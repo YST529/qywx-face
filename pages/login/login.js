@@ -86,6 +86,7 @@ Page({
       app.globalData.token = res.data.token;
       wx.setStorageSync('userInfo', JSON.stringify(res.data.userInfo));
       wx.setStorageSync('token', res.data.token);
+      wx.setStorageSync('username', res.data.userInfo.username);
     }).catch((err) => {
       console.log(err, 'catch error')
     })
@@ -112,6 +113,7 @@ Page({
         if (res.confirm) {
           wx.removeStorageSync('token');
           wx.removeStorageSync('userInfo');
+          wx.removeStorageSync('username');
           that.setData({
             userInfo: {
               nickname: '点击登录',

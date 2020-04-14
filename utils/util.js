@@ -32,7 +32,7 @@ function request(url, data = {}, method = "GET") {
         'X-Nideshop-Token': wx.getStorageSync('token')
       },
       success: function (res) {
-        console.log("success",res);
+        console.log("success", res);
         // debugger
         if (res.statusCode == 200) {
 
@@ -45,7 +45,10 @@ function request(url, data = {}, method = "GET") {
               return getUserInfo();
             }).then((userInfo) => {
               //登录远程服务器
-              request(api.AuthLoginByWeixin, { code: code, userInfo: userInfo }, 'POST').then(res => {
+              request(api.AuthLoginByWeixin, {
+                code: code,
+                userInfo: userInfo
+              }, 'POST').then(res => {
                 if (res.errno === 0) {
                   //存储用户信息
                   wx.setStorageSync('userInfo', res.data.userInfo);
@@ -161,6 +164,26 @@ function showErrorToast(msg) {
   })
 }
 
+
+function formatDate(number, format="Y-M-D h:m") {
+  var formateArr = ['Y', 'M', 'D', 'h', 'm', 's'];
+  var returnArr = [];
+
+  var date = new Date(number * 1000);
+  returnArr.push(date.getFullYear());
+  returnArr.push(formatNumber(date.getMonth() + 1));
+  returnArr.push(formatNumber(date.getDate()));
+
+  returnArr.push(formatNumber(date.getHours()));
+  returnArr.push(formatNumber(date.getMinutes()));
+  returnArr.push(formatNumber(date.getSeconds()));
+
+  for (var i in returnArr) {
+    format = format.replace(formateArr[i], returnArr[i]);
+  }
+  return format;
+}
+
 module.exports = {
   formatTime,
   request,
@@ -171,6 +194,5 @@ module.exports = {
   checkSession,
   login,
   getUserInfo,
+  formatDate
 }
-
-
