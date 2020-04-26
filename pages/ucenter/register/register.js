@@ -73,10 +73,13 @@ Page({
          img:baseImg
         }, 'POST').then(res => {
           if(res.data.data.face_num == 1) {
-            util.post(api.UserFaceRegister, {
+            util.post(api.UserSetFace, {
               img: baseImg,
               username: name
             }).then(resData => {
+              if(resData.face_token !== null) {
+                that.init();
+              }
               console.log(resData.data, 'register')
             })
           }

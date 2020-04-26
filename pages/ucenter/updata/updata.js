@@ -12,22 +12,69 @@ Page({
     dialogShow: false,
     buttons: [{
       text: '取消'
-    }]
+    }],
+    isFace: false,
+    userFace: {},
   },
   openConfirm: function () {
     this.setData({
       dialogShow: true
     })
-    util.request(api.UserFaceSearch, {
-      data: '123'
-    }).then(res => {
-      console.log(res.data, 'eee')
-    })
+    const that = this
+    this.takePhoto().then(reslove => {
+      console.log(reslove, '验证')
+      if( reslove.baseImg !== null ) {
+        that.setData({
+          isFace: true
+        })
+        util.post(api.UserFaceSearch, {
+          img: reslove.baseImg,
+          username: reslove.name
+        }).then(res => {
+          if(res.data.face_token !== null) {
+            that.setData({
+              dialogShow: false,
+            })
+            wx.showToast({
+              title: '成功',
+              icon: 'success',
+              duration: 2000
+            })
+          }
+          console.log(res.data, 'eee')
+        })
+      }
+    });
   },
   tapDialogButton(e) {
     this.setData({
       dialogShow: false,
     })
+  },
+  takePhoto() {
+    const ctx = wx.createCameraContext()
+    let that = this
+    return new Promise((reslove, reject) => {
+      ctx.takePhoto({
+        quality: 'high',
+        success: (res) => {
+          let img = res.tempImagePath
+          let baseImg = wx.getFileSystemManager().readFileSync(img, "base64")
+          const name = wx.getStorageSync('username');
+          // console.log(baseImg, 'base')
+          util.request(api.UserFaceDetect, {
+           img: baseImg
+          }, 'POST').then(res => {
+            console.log(res, 'faceData')
+            if(res.data.data.face_num == 1) {
+              reslove({baseImg, name})
+            }
+            reject(res)
+          })
+        }
+      })
+    })
+
   },
 
   /**

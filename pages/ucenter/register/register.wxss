@@ -1,4 +1,4 @@
 /* pages/ucenter/register/register.wxss */
 .camera{
-  /* display: none; */
+  visibility: hidden;
 }

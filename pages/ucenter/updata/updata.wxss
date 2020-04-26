@@ -1,1 +1,4 @@
 /* pages/ucenter/updata/updata.wxss */
+.camera{
+  visibility: hidden;
+}

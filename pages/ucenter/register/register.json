@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "mp-cell": "/static/weui/cell/cell",
-    "mp-cells": "/static/weui/cells/cells"
+    "mp-cells": "/static/weui/cells/cells",
+    "mp-dialog": "/static/weui/dialog/dialog"
   }
 }
